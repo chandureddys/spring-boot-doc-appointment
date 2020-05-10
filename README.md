@@ -1,1 +1,1 @@
-# spring-boot-pet-clinic
+# spring-boot-doc-appointment
