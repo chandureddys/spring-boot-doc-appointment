@@ -4,5 +4,5 @@
 Getting Started
 1. git clone 
 2. go to the directory
-3.mvn clean install
-4.mvn spring-boot:run
+3. mvn clean install
+4. mvn spring-boot:run
