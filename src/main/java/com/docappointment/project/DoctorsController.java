@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "v1/veterinarians")
-public class VeterinariansController {
+@RequestMapping(path = "v1/doctors")
+public class DoctorsController {
 
 	@GetMapping
-	public List<String> getVeterinarians() {
+	public List<String> getDoctors() {
 		return Arrays.asList("venkat", "chandu");
 
 	}
