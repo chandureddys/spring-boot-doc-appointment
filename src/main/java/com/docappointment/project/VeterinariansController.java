@@ -1,4 +1,4 @@
-package com.petclinic.project;
+package com.docappointment.project;
 
 import java.util.Arrays;
 import java.util.List;

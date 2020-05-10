@@ -8,12 +8,12 @@
 		<version>2.2.7.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pet-clinic</groupId>
+	<groupId>com.doc-appointmet</groupId>
 	<artifactId>project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>pet-clinic</name>
-	<description>Pet clinic </description>
+	<name>doc-appointment</name>
+	<description>Doc appointment</description>
 
 	<properties>
 		<java.version>1.8</java.version>

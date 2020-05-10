@@ -1,13 +1,13 @@
-package com.petclinic.project;
+package com.docappointment.project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PetClinicApplication {
+public class DocAppointmentApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PetClinicApplication.class, args);
+		SpringApplication.run(DocAppointmentApplication.class, args);
 	}
 
 }
