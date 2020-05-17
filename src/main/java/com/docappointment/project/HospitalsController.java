@@ -1,8 +1,8 @@
 package com.docappointment.project;
 
-
-import com.docappointment.project.entity.Patient;
+import com.docappointment.project.dao.HospitalDao;
 import com.docappointment.project.dao.PatientDao;
+import com.docappointment.project.entity.Hospital;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/v1")
-public class PatientsController {
-    @Autowired
-    private PatientDao patientDao;
+public class HospitalsController {
 
-    @RequestMapping(method = RequestMethod.POST, value = "/patient")
-    public Boolean insertPatientInfo(@RequestBody Patient patient) {
-        return patientDao.savePatientInfo(patient);
+    @Autowired
+    private HospitalDao hospitalDao;
+
+    @RequestMapping(method = RequestMethod.POST, path = "/hospitals")
+    public boolean saveHospitalsInfo(@RequestBody Hospital hospital) {
+        return  hospitalDao.saveHospitalsInfo(hospital);
     }
 }
