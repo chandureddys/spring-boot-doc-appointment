@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/v1")
 public class HospitalsController {
@@ -19,5 +21,10 @@ public class HospitalsController {
     @RequestMapping(method = RequestMethod.POST, path = "/hospitals")
     public boolean saveHospitalsInfo(@RequestBody Hospital hospital) {
         return  hospitalDao.saveHospitalsInfo(hospital);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/hospitals")
+    public List<Hospital> getHospitals() {
+        return  hospitalDao.findAll();
     }
 }
