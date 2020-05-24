@@ -1,4 +1,4 @@
-package com.docappointment.project;
+package com.docappointment.project.controller;
 
 import com.docappointment.project.dao.HospitalDao;
 import com.docappointment.project.entity.Hospital;
@@ -15,12 +15,12 @@ public class HospitalsController {
     private HospitalDao hospitalDao;
 
    @PostMapping
-    public boolean saveHospitalsInfo(@RequestBody Hospital hospital) {
-        return  hospitalDao.saveHospitalsInfo(hospital);
+    public boolean hospital(@RequestBody Hospital hospital) {
+        return  hospitalDao.save(hospital);
     }
 
     @GetMapping
-    public List<Hospital> getHospitals() {
+    public List<Hospital> hospital() {
         return  hospitalDao.findAll();
     }
 }

@@ -1,4 +1,4 @@
-package com.docappointment.project;
+package com.docappointment.project.controller;
 
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class DoctorsController {
 
 	@PostMapping
 	public boolean doctors(@RequestBody Doctor doctor) {
-		return doctorDao.saveDoctors(doctor);
+		return doctorDao.save(doctor);
 	}
 
 	@GetMapping

@@ -1,5 +1,7 @@
 package com.docappointment.project.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,7 +13,8 @@ public class Appointment {
     private Date date;
     private Long doctor_id;
 
-    @ManyToOne
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="patient_id", nullable=false)
     private Patient patient;
 

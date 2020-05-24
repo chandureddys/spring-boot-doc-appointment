@@ -1,6 +1,9 @@
 package com.docappointment.project.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,8 +19,10 @@ public class Hospital {
     private String zipcode;
     private String insurancePlan;
 
-    @OneToMany(mappedBy="hospital")
-    private Set<Doctor> doctors;
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL, mappedBy="hospital")
+    private Set<Doctor> doctors = new HashSet<Doctor>();
 
     public Set<Doctor> getDoctors() {
         return doctors;

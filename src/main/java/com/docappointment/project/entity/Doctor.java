@@ -1,5 +1,7 @@
 package com.docappointment.project.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,7 +14,8 @@ public class Doctor {
     private String speciality;
     private String qualification;
 
-    @ManyToOne
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="hospital_id", nullable=false)
     private Hospital hospital;
 

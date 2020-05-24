@@ -20,7 +20,7 @@ public class HospitalDao {
     private HospitalRep hospitalRep;
 
     @Transactional
-    public boolean saveHospitalsInfo(Hospital hospital) {
+    public boolean save(Hospital hospital) {
         this.entityManager.persist(hospital);
         return true;
     }

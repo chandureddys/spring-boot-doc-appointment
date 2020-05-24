@@ -1,5 +1,8 @@
 package com.docappointment.project.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -17,7 +20,9 @@ public class Patient {
     private String zipcode;
     private String insurancePlan;
 
-    @OneToMany(mappedBy="patient")
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL, mappedBy="patient")
     private Set<Appointment> appointments;
 
     public Long  getId() {
