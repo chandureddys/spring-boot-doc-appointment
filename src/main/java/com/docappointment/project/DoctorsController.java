@@ -1,20 +1,28 @@
 package com.docappointment.project;
 
-import java.util.Arrays;
+
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.docappointment.project.dao.DoctorDao;
+import com.docappointment.project.entity.Doctor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
-@RequestMapping(path = "v1/doctors")
+@RequestMapping(path = "/v1/doctors")
 public class DoctorsController {
 
-	@GetMapping
-	public List<String> getDoctors() {
-		return Arrays.asList("venkat", "chandu");
+	@Autowired
+	private DoctorDao doctorDao;
 
+	@PostMapping
+	public boolean doctors(@RequestBody Doctor doctor) {
+		return doctorDao.saveDoctors(doctor);
 	}
 
+	@GetMapping
+	public List<Doctor> doctors() {
+		return doctorDao.findAll();
+	}
 }

@@ -1,14 +1,14 @@
 package com.docappointment.project.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Patient {
 
     @Id
     @GeneratedValue
+    @Column(name="patient_id")
     private Long  id;
     private String firstName;
     private String lastName;
@@ -16,6 +16,9 @@ public class Patient {
     private String city;
     private String zipcode;
     private String insurancePlan;
+
+    @OneToMany(mappedBy="patient")
+    private Set<Appointment> appointments;
 
     public Long  getId() {
         return id;
@@ -71,5 +74,13 @@ public class Patient {
 
     public void setInsurancePlan(String insurancePlan) {
         this.insurancePlan = insurancePlan;
+    }
+
+    public Set<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(Set<Appointment> appointments) {
+        this.appointments = appointments;
     }
 }

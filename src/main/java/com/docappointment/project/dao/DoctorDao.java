@@ -1,7 +1,7 @@
 package com.docappointment.project.dao;
 
-import com.docappointment.project.entity.Hospital;
-import com.docappointment.project.repository.HospitalRep;
+import com.docappointment.project.entity.Doctor;
+import com.docappointment.project.repository.DoctorRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,21 +11,21 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class HospitalDao {
+public class DoctorDao {
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Autowired
-    private HospitalRep hospitalRep;
+    private DoctorRep doctorRep;
 
     @Transactional
-    public boolean saveHospitalsInfo(Hospital hospital) {
-        this.entityManager.persist(hospital);
+    public boolean saveDoctors(Doctor doctor) {
+        this.entityManager.persist(doctor);
         return true;
     }
 
-    public  List<Hospital> findAll(){
-      return this.hospitalRep.findAll();
+    public List<Doctor> findAll(){
+        return this.doctorRep.findAll();
     }
 }

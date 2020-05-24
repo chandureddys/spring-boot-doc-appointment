@@ -1,20 +1,31 @@
 package com.docappointment.project.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Hospital {
 
     @Id
     @GeneratedValue
+    @Column(name="hospital_id")
     private Long  id;
     private String name;
     private String address;
     private String city;
     private String zipcode;
     private String insurancePlan;
+
+    @OneToMany(mappedBy="hospital")
+    private Set<Doctor> doctors;
+
+    public Set<Doctor> getDoctors() {
+        return doctors;
+    }
+
+    public void setDoctors(Set<Doctor> doctors) {
+        this.doctors = doctors;
+    }
 
     public Long getId() {
         return id;
